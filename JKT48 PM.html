@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JKT48 Private Message — Fanmade</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            jkt: {
+              pink: '#ec4899',
+              gold: '#eab308',
+              love: '#f43f5e',
+              dream: '#0ea5e9',
+              passion: '#eab308',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 999px;
+    }
+    /* Typing Indicator Animation */
+    .dot-flashing {
+      position: relative;
+      width: 6px;
+      height: 6px;
+      border-radius: 5px;
+      background-color: currentColor;
+      animation: dot-flashing 1s infinite linear alternate;
+      animation-delay: .5s;
+    }
+    .dot-flashing::before, .dot-flashing::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 5px;
+      background-color: currentColor;
+      animation: dot-flashing 1s infinite alternate;
+    }
+    .dot-flashing::before {
+      left: -12px;
+      animation-delay: 0s;
+    }
+    .dot-flashing::after {
+      left: 12px;
+      animation-delay: 1s;
+    }
+    @keyframes dot-flashing {
+      0% { opacity: 0.2; }
+      50%, 100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-zinc-900 font-sans antialiased text-zinc-100 flex items-center justify-center min-h-screen p-0 md:p-4">
+
+  <!-- Desktop Outer Wrapper simulating a premium Smartphone Screen -->
+  <div class="w-full max-w-md bg-zinc-950 md:rounded-3xl md:shadow-2xl overflow-hidden flex flex-col h-screen md:h-[840px] relative border border-transparent md:border-zinc-800 transition-colors duration-300 dark:bg-zinc-950 bg-zinc-50 dark:text-zinc-100 text-zinc-900">
+    
+    <!-- SYSTEM BAR SIMULATION -->
+    <div class="bg-zinc-950 text-white text-xs px-5 py-2 flex justify-between items-center z-40 shrink-0">
+      <span class="font-bold">11:44</span>
+      <div class="flex items-center space-x-1">
+        <span class="text-[10px] bg-red-600 px-1 rounded font-bold mr-1">SIMULATION</span>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-battery-three-quarters text-green-400"></i>
+      </div>
+    </div>
+
+    <!-- MAIN NOTIFICATION TOAST OVERLAY -->
+    <div id="toast-notification" class="absolute top-12 left-4 right-4 bg-zinc-900/95 border border-zinc-700/50 rounded-2xl p-4 shadow-2xl z-50 transform translate-y-[-150%] transition-transform duration-500 flex items-center space-x-3 backdrop-blur-md hidden pointer-events-none">
+      <div id="toast-avatar" class="w-10 h-10 rounded-full flex items-center justify-center bg-pink-500 text-white text-lg font-bold shadow-md">🌸</div>
+      <div class="flex-1 min-w-0">
+        <p id="toast-title" class="text-sm font-bold text-white truncate"></p>
+        <p id="toast-msg" class="text-xs text-zinc-300 truncate"></p>
+      </div>
+      <div class="text-[10px] text-pink-500 font-bold bg-pink-500/10 px-2 py-0.5 rounded-full">New PM</div>
+    </div>
+
+    <!-- SCROLLABLE BODY PANELS -->
+    <main class="flex-1 overflow-y-auto relative p-4 pb-24" id="main-content">
+      
+      <!-- VIEW: HOME -->
+      <section id="view-home" class="space-y-6">
+        <div class="text-center py-6">
+          <div class="inline-flex items-center space-x-2 bg-pink-500/10 border border-pink-500/30 text-pink-500 px-3 py-1 rounded-full text-xs font-semibold mb-2">
+            <span class="w-1.5 h-1.5 bg-pink-500 rounded-full animate-ping"></span>
+            <span>SIMULATION PLATFORM</span>
+          </div>
+          <h1 class="text-2xl font-black tracking-tight bg-gradient-to-r from-pink-500 to-rose-400 bg-clip-text text-transparent">JKT48 PRIVATE MESSAGE</h1>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Fanmade Private Message & Roleplay Simulation</p>
+        </div>
+
+        <!-- STATS BOX -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-zinc-100 dark:bg-zinc-900/80 p-4 rounded-2xl border border-zinc-200/50 dark:border-zinc-800 flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 flex items-center justify-center"><i class="fa-solid fa-star text-lg"></i></div>
+            <div>
+              <p class="text-[10px] text-zinc-400 font-semibold uppercase tracking-wider">Aktif PM</p>
+              <h3 id="stat-active-subs" class="text-lg font-extrabold">0</h3>
+            </div>
+          </div>
+          <div class="bg-zinc-100 dark:bg-zinc-900/80 p-4 rounded-2xl border border-zinc-200/50 dark:border-zinc-800 flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center"><i class="fa-solid fa-receipt text-lg"></i></div>
+            <div>
+              <p class="text-[10px] text-zinc-400 font-semibold uppercase tracking-wider">Transaksi</p>
+              <h3 id="stat-total-tx" class="text-lg font-extrabold">0</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- PREMIUM PROMO SLIDER -->
+        <div class="bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 p-5 rounded-2xl text-white relative overflow-hidden shadow-lg shadow-pink-500/10">
+          <div class="relative z-10 space-y-1">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded">FITUR TERBAIK</span>
+            <h2 class="text-base font-bold">Interaksi Real-time Setiap Hari</h2>
+            <p class="text-xs text-white/80 leading-relaxed">Berlangganan simulasi PM member favorit Anda dan rasakan sensasi menerima notifikasi chat eksklusif dari mereka kapan saja.</p>
+          </div>
+          <div class="absolute -right-10 -bottom-10 opacity-10 text-[120px]"><i class="fa-solid fa-comments"></i></div>
+        </div>
+
+        <!-- RECENT PM / CHAT LIST -->
+        <div class="space-y-3">
+          <div class="flex justify-between items-center">
+            <h2 class="text-sm font-bold tracking-wider text-zinc-400 uppercase">Obrolan Terbaru</h2>
+            <button onclick="switchTab('chats')" class="text-xs text-pink-500 font-bold hover:underline">Lihat Semua</button>
+          </div>
+          <div id="home-recent-chats" class="space-y-3">
+            <!-- Dynamic chats list loaded here -->
+          </div>
+        </div>
+
+        <!-- APP DISCLAIMER CARD -->
+        <div class="bg-red-500/5 dark:bg-red-950/10 border border-red-500/20 rounded-2xl p-4">
+          <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-circle-exclamation text-red-500 mt-1"></i>
+            <div class="space-y-1">
+              <h4 class="text-xs font-bold text-red-500 uppercase tracking-wider">⚠️ FANMADE / ROLEPLAY / SIMULATION</h4>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Aplikasi ini dibuat sepenuhnya oleh penggemar dan **tidak berafiliasi dengan JKT48**. Seluruh Private Message dan percakapan di dalam aplikasi adalah simulasi peran (roleplay).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: MEMBERS -->
+      <section id="view-members" class="space-y-4 hidden">
+        <div class="sticky top-0 bg-zinc-50 dark:bg-zinc-950 py-2 z-10 space-y-3">
+          <!-- Real-time Search Box -->
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400"></i>
+            <input type="text" id="search-input" oninput="filterAndRenderMembers()" placeholder="Cari Nama Member, Generasi, atau Status..." class="w-full pl-11 pr-4 py-3 rounded-2xl dark:bg-zinc-900 bg-zinc-100 border border-zinc-200 dark:border-zinc-800 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:text-white text-zinc-950 transition-all">
+          </div>
+
+          <!-- Quick Filters Section -->
+          <div class="space-y-2">
+            <!-- Filter: Team -->
+            <div class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs">
+              <span class="text-zinc-400 shrink-0 font-bold uppercase tracking-wider mr-1">Tim:</span>
+              <button onclick="setFilter('team', 'ALL')" class="filter-team-btn px-3 py-1.5 rounded-full font-bold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700 active-filter">ALL</button>
+              <button onclick="setFilter('team', 'Team Love')" class="filter-team-btn px-3 py-1.5 rounded-full font-bold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">LOVE</button>
+              <button onclick="setFilter('team', 'Team Dream')" class="filter-team-btn px-3 py-1.5 rounded-full font-bold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">DREAM</button>
+              <button onclick="setFilter('team', 'Team Passion')" class="filter-team-btn px-3 py-1.5 rounded-full font-bold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">PASSION</button>
+              <button onclick="setFilter('team', 'Trainee')" class="filter-team-btn px-3 py-1.5 rounded-full font-bold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">TRAINEE</button>
+              <button onclick="setFilter('team', 'JKT48 Virtual')" class="filter-team-btn px-3 py-1.5 rounded-full font-bold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">VIRTUAL</button>
+            </div>
+
+            <!-- Filter: Generation -->
+            <div class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs">
+              <span class="text-zinc-400 shrink-0 font-bold uppercase tracking-wider mr-1">Gen:</span>
+              <button onclick="setFilter('gen', 'ALL')" class="filter-gen-btn px-2.5 py-1 rounded-full font-semibold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700 active-filter">ALL</button>
+              <!-- Populated by JS for Gen 1 - Gen 14 -->
+              <div id="gen-filter-container" class="flex space-x-2"></div>
+            </div>
+
+            <!-- Filter: Status -->
+            <div class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs">
+              <span class="text-zinc-400 shrink-0 font-bold uppercase tracking-wider mr-1">Status:</span>
+              <button onclick="setFilter('status', 'ALL')" class="filter-status-btn px-3 py-1 rounded-full font-semibold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700 active-filter">ALL</button>
+              <button onclick="setFilter('status', 'active')" class="filter-status-btn px-3 py-1 rounded-full font-semibold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">ACTIVE</button>
+              <button onclick="setFilter('status', 'trainee')" class="filter-status-btn px-3 py-1 rounded-full font-semibold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">TRAINEE</button>
+              <button onclick="setFilter('status', 'ex-member')" class="filter-status-btn px-3 py-1 rounded-full font-semibold transition-all dark:bg-zinc-900 dark:text-zinc-400 bg-zinc-200 text-zinc-700">EX-MEMBER</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Members Grid -->
+        <div id="members-grid" class="grid grid-cols-2 gap-3 pt-2">
+          <!-- Dynamic members injected here -->
+        </div>
+      </section>
+
+      <!-- VIEW: CHATS -->
+      <section id="view-chats" class="space-y-4 hidden">
+        <h2 class="text-lg font-bold tracking-tight">Daftar Obrolan Aktif</h2>
+        <div id="chats-list" class="space-y-3">
+          <!-- Dynamic chats injected here -->
+        </div>
+      </section>
+
+      <!-- VIEW: TRANSACTIONS -->
+      <section id="view-transactions" class="space-y-6 hidden">
+        <div>
+          <h2 class="text-lg font-bold tracking-tight">Akun & Langganan</h2>
+          <p class="text-xs text-zinc-400">Kelola paket simulasi Private Message Anda</p>
+        </div>
+
+        <!-- My Subscriptions -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Langganan Saya</h3>
+          <div id="my-subscriptions-list" class="space-y-3">
+            <!-- Subs list -->
+          </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Riwayat Transaksi</h3>
+          <div id="tx-history-list" class="space-y-3">
+            <!-- Transactions list -->
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: SETTINGS -->
+      <section id="view-settings" class="space-y-6 hidden">
+        <div>
+          <h2 class="text-lg font-bold tracking-tight">Pengaturan Aplikasi</h2>
+          <p class="text-xs text-zinc-400">Atur preferensi simulasi Private Message</p>
+        </div>
+
+        <!-- Preference Section -->
+        <div class="dark:bg-zinc-900 bg-zinc-100 rounded-3xl border border-zinc-200/50 dark:border-zinc-800 divide-y divide-zinc-200 dark:divide-zinc-800 overflow-hidden text-sm">
+          <div class="flex justify-between items-center p-4">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-moon text-lg text-pink-500"></i>
+              <div>
+                <p class="font-bold">Dark Mode</p>
+                <p class="text-xs text-zinc-400">Ubah tampilan warna visual aplikasi</p>
+              </div>
+            </div>
+            <button onclick="toggleSetting('darkMode')" id="setting-darkMode" class="w-12 h-6 rounded-full p-1 bg-pink-500 flex justify-end transition-colors">
+              <span class="w-4 h-4 rounded-full bg-white transition-transform"></span>
+            </button>
+          </div>
+
+          <div class="flex justify-between items-center p-4">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-keyboard text-lg text-pink-500"></i>
+              <div>
+                <p class="font-bold">Animasi Mengetik</p>
+                <p class="text-xs text-zinc-400">Menampilkan status mengetik member</p>
+              </div>
+            </div>
+            <button onclick="toggleSetting('typingAnimation')" id="setting-typingAnimation" class="w-12 h-6 rounded-full p-1 bg-pink-500 flex justify-end transition-colors">
+              <span class="w-4 h-4 rounded-full bg-white transition-transform"></span>
+            </button>
+          </div>
+
+          <div class="flex justify-between items-center p-4">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-bell text-lg text-pink-500"></i>
+              <div>
+                <p class="font-bold">Notifikasi Pesan</p>
+                <p class="text-xs text-zinc-400">Notifikasi sembulan real-time saat simulasi aktif</p>
+              </div>
+            </div>
+            <button onclick="toggleSetting('notifications')" id="setting-notifications" class="w-12 h-6 rounded-full p-1 bg-pink-500 flex justify-end transition-colors">
+              <span class="w-4 h-4 rounded-full bg-white transition-transform"></span>
+            </button>
+          </div>
+
+          <div class="flex justify-between items-center p-4">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-volume-high text-lg text-pink-500"></i>
+              <div>
+                <p class="font-bold">Efek Suara</p>
+                <p class="text-xs text-zinc-400">Bunyi notifikasi untuk simulasi chat baru</p>
+              </div>
+            </div>
+            <button onclick="toggleSetting('sound')" id="setting-sound" class="w-12 h-6 rounded-full p-1 bg-pink-500 flex justify-end transition-colors">
+              <span class="w-4 h-4 rounded-full bg-white transition-transform"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-bold text-red-500 uppercase tracking-wider">Danger Zone</h3>
+          <button onclick="resetApplication()" class="w-full p-4 rounded-2xl bg-red-500/10 hover:bg-red-500/20 text-red-500 font-bold text-sm border border-red-500/20 text-center transition-all flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-trash-can"></i>
+            <span>Reset Seluruh Aplikasi</span>
+          </button>
+        </div>
+
+        <div class="text-center text-xs text-zinc-500 space-y-1 py-4">
+          <p>© 2026 JKT48 Private Message — Fanmade Engine v2.0</p>
+          <p>Powered by TailwindCSS & LocalStorage</p>
+        </div>
+      </section>
+
+      <!-- VIEW: CHAT VIEW (ONE WAY CHAT ROOM) -->
+      <section id="view-chat-room" class="absolute inset-0 bg-zinc-50 dark:bg-zinc-950 z-30 flex flex-col hidden">
+        <!-- Chat Header -->
+        <div class="flex items-center justify-between p-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 shrink-0">
+          <div class="flex items-center space-x-3">
+            <button onclick="closePM()" class="text-zinc-500 dark:text-zinc-400 text-lg hover:text-pink-500 transition-colors">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div id="chat-header-avatar" class="w-10 h-10 rounded-full flex items-center justify-center bg-pink-500 text-white text-lg font-bold shadow-sm"></div>
+            <div>
+              <h3 id="chat-header-name" class="font-bold text-sm text-zinc-950 dark:text-zinc-100"></h3>
+              <p id="chat-header-status" class="text-[10px] text-green-500 flex items-center font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1"></span> PM Active
+              </p>
+            </div>
+          </div>
+          <div id="chat-header-badge" class="text-[10px] px-2.5 py-1 rounded-full font-bold"></div>
+        </div>
+
+        <!-- Chat Bubble Container -->
+        <div id="chat-bubbles-container" class="flex-1 overflow-y-auto p-4 space-y-4 flex flex-col">
+          <!-- Bubbles load here -->
+        </div>
+
+        <!-- No Reply Footer -->
+        <div class="p-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-center shrink-0">
+          <p class="text-xs text-zinc-400 dark:text-zinc-500 italic"><i class="fa-solid fa-lock mr-1"></i> Mode Hanya Baca. Balasan dinonaktifkan untuk simulasi Private Message.</p>
+        </div>
+      </section>
+
+      <!-- MODAL: PROFILE / CHECKOUT / PAYMENT FLOW -->
+      <div id="flow-modal" class="absolute inset-0 bg-black/70 backdrop-blur-sm z-40 items-center justify-center p-4 hidden flex">
+        <div class="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl w-full max-w-sm max-h-[90%] overflow-y-auto shadow-2xl relative p-5 flex flex-col space-y-4 text-zinc-900 dark:text-zinc-100">
+          <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+
+          <!-- MODAL SUB-VIEW: MEMBER PROFILE -->
+          <div id="modal-sub-profile" class="space-y-4">
+            <div class="text-center space-y-2">
+              <div id="profile-avatar" class="w-24 h-24 rounded-full mx-auto flex items-center justify-center bg-pink-500 text-white text-4xl shadow-lg border-4 border-zinc-200 dark:border-zinc-800"></div>
+              <h2 id="profile-name" class="text-lg font-black tracking-tight"></h2>
+              <div class="flex justify-center space-x-2">
+                <span id="profile-gen" class="text-[10px] bg-zinc-200 dark:bg-zinc-800 px-2 py-0.5 rounded-full font-bold"></span>
+                <span id="profile-team" class="text-[10px] px-2.5 py-0.5 rounded-full font-bold text-white"></span>
+                <span id="profile-status" class="text-[10px] px-2 py-0.5 rounded-full font-bold text-white"></span>
+              </div>
+            </div>
+
+            <!-- Profile Details Stats -->
+            <div class="grid grid-cols-2 gap-2 bg-zinc-100 dark:bg-zinc-950 p-3 rounded-2xl border border-zinc-200/50 dark:border-zinc-800 text-xs">
+              <div class="text-center border-r border-zinc-200 dark:border-zinc-800 p-1">
+                <p class="text-zinc-400 font-medium">Status Langganan</p>
+                <p id="profile-sub-state" class="font-extrabold mt-0.5"></p>
+              </div>
+              <div class="text-center p-1">
+                <p class="text-zinc-400 font-medium">Jumlah Pesan</p>
+                <p id="profile-msg-count" class="font-extrabold mt-0.5 text-zinc-800 dark:text-zinc-100"></p>
+              </div>
+            </div>
+
+            <div id="profile-action-container">
+              <!-- Buy Subscriptions or Active Action here -->
+            </div>
+          </div>
+
+          <!-- MODAL SUB-VIEW: SELECT PLAN -->
+          <div id="modal-sub-plans" class="space-y-4 hidden">
+            <div>
+              <h3 class="text-base font-black tracking-tight text-zinc-950 dark:text-zinc-100">Pilih Paket Langganan</h3>
+              <p class="text-xs text-zinc-500">Pilih durasi simulasi Private Message untuk member ini</p>
+            </div>
+            
+            <div class="space-y-2.5">
+              <button onclick="selectPlan('1month')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 bg-white flex justify-between items-center hover:border-pink-500/50 transition-all">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                  <div>
+                    <h4 class="font-bold text-sm">1 BULAN</h4>
+                    <p class="text-[10px] text-zinc-400">Akses simulasi selama 30 Hari</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-black text-pink-500">Rp 15.000</span>
+                </div>
+              </button>
+
+              <button onclick="selectPlan('6month')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 bg-white flex justify-between items-center hover:border-pink-500/50 transition-all">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+                  <div>
+                    <h4 class="font-bold text-sm">6 BULAN</h4>
+                    <p class="text-[10px] text-zinc-400">Akses simulasi selama 180 Hari</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-black text-pink-500">Rp 50.000</span>
+                </div>
+              </button>
+
+              <button onclick="selectPlan('1year')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 bg-white flex justify-between items-center hover:border-pink-500/50 transition-all">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2.5 h-2.5 rounded-full bg-purple-500"></div>
+                  <div>
+                    <h4 class="font-bold text-sm">1 TAHUN</h4>
+                    <p class="text-[10px] text-zinc-400">Akses simulasi selama 365 Hari</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-black text-pink-500">Rp 85.000</span>
+                </div>
+              </button>
+
+              <button onclick="selectPlan('permanent')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 bg-white flex justify-between items-center hover:border-pink-500/50 transition-all">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-500 animate-pulse"></div>
+                  <div>
+                    <h4 class="font-bold text-sm">PERMANEN</h4>
+                    <p class="text-[10px] text-zinc-400">Akses Tanpa Batas / Selamanya</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-black text-pink-500">Rp 150.000</span>
+                </div>
+              </button>
+            </div>
+            
+            <p class="text-[9px] text-zinc-400 text-center italic mt-1 leading-relaxed">
+              « Harga di atas sepenuhnya hanyalah representasi dari simulasi roleplay fanmade dan tidak melibatkan uang nyata ataupun sistem pembayaran asli »
+            </p>
+          </div>
+
+          <!-- MODAL SUB-VIEW: CHECKOUT -->
+          <div id="modal-sub-checkout" class="space-y-4 hidden text-sm">
+            <div>
+              <h3 class="text-base font-black tracking-tight text-zinc-950 dark:text-zinc-100">Checkout Simulasi</h3>
+              <p class="text-xs text-zinc-500">Konfirmasi detail transaksi berlangganan</p>
+            </div>
+
+            <div class="divide-y divide-zinc-200 dark:divide-zinc-800 dark:bg-zinc-950 bg-white p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 space-y-3">
+              <div class="flex justify-between items-center pb-2">
+                <span class="text-xs text-zinc-400">Member target</span>
+                <span id="checkout-target" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between items-center pt-2 pb-2">
+                <span class="text-xs text-zinc-400">Paket Langganan</span>
+                <span id="checkout-plan" class="font-bold"></span>
+              </div>
+              <div class="flex justify-between items-center pt-2 pb-2">
+                <span class="text-xs text-zinc-400">Durasi Akses</span>
+                <span id="checkout-duration" class="font-bold text-zinc-600 dark:text-zinc-400"></span>
+              </div>
+              <div class="flex justify-between items-center pt-2">
+                <span class="text-xs text-zinc-400">Harga Total</span>
+                <span id="checkout-price" class="font-extrabold text-pink-500 text-base"></span>
+              </div>
+            </div>
+
+            <div class="bg-amber-500/5 dark:bg-amber-950/10 border border-amber-500/20 text-amber-500 text-[10px] p-3 rounded-2xl leading-relaxed">
+              <strong>⚠️ PERINGATAN SIMULASI</strong><br>
+              Transaksi ini hanyalah simulasi peran (roleplay) fanmade. Anda tidak akan dikenakan biaya sungguhan dan tidak perlu mentransfer dana.
+            </div>
+
+            <button onclick="goToPayment()" class="w-full py-3.5 rounded-2xl bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm shadow-lg shadow-pink-500/10 text-center transition-all">
+              Lanjutkan Pembayaran
+            </button>
+          </div>
+
+          <!-- MODAL SUB-VIEW: PAYMENT METHOD -->
+          <div id="modal-sub-payment" class="space-y-4 hidden">
+            <div>
+              <h3 class="text-base font-black tracking-tight text-zinc-950 dark:text-zinc-100">Pilih Metode Simulasi</h3>
+              <p class="text-xs text-zinc-500">Metode simulasi pembayaran dummy</p>
+            </div>
+
+            <div class="space-y-2">
+              <button onclick="executePayment('QRIS')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 bg-white flex items-center space-x-3 hover:border-pink-500/50 transition-all">
+                <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-500 flex items-center justify-center text-sm"><i class="fa-solid fa-qrcode"></i></div>
+                <div>
+                  <h4 class="font-bold text-xs text-zinc-950 dark:text-zinc-100">QRIS Simulated Payment</h4>
+                  <p class="text-[9px] text-zinc-400">Scan QR buatan yang aman</p>
+                </div>
+              </button>
+              <button onclick="executePayment('E-Wallet')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 bg-white flex items-center space-x-3 hover:border-pink-500/50 transition-all">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center text-sm"><i class="fa-solid fa-wallet"></i></div>
+                <div>
+                  <h4 class="font-bold text-xs text-zinc-950 dark:text-zinc-100">E-Wallet Simulation (GoPay/OVO)</h4>
+                  <p class="text-[9px] text-zinc-400">Instan sukses satu-klik</p>
+                </div>
+              </button>
+              <button onclick="executePayment('Bank Transfer')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 bg-white flex items-center space-x-3 hover:border-pink-500/50 transition-all">
+                <div class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center text-sm"><i class="fa-solid fa-building-columns"></i></div>
+                <div>
+                  <h4 class="font-bold text-xs text-zinc-950 dark:text-zinc-100">Virtual Account Simulation</h4>
+                  <p class="text-[9px] text-zinc-400">Simulasi transfer Bank Mandiri/BCA</p>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- MODAL SUB-VIEW: QRIS DUMMY SCREEN -->
+          <div id="modal-sub-qris" class="space-y-4 hidden text-center">
+            <div>
+              <h3 class="text-base font-black tracking-tight text-zinc-950 dark:text-zinc-100">SCAN QRIS SIMULASI</h3>
+              <p class="text-xs text-zinc-500">Silakan gunakan tombol sukses di bawah</p>
+            </div>
+
+            <!-- Dynamic QR Injection -->
+            <div id="qris-graphic-container" class="relative"></div>
+
+            <div class="bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] p-3 rounded-2xl leading-relaxed">
+              <strong>BUKAN QRIS PEMBAYARAN ASLI.</strong><br>
+              Jangan mengirimkan uang nyata ke gambar kode QR di atas.
+            </div>
+
+            <button onclick="completeSimulatedPayment()" class="w-full py-3.5 rounded-2xl bg-green-500 hover:bg-green-600 text-white font-bold text-sm shadow-lg shadow-green-500/10 text-center transition-all flex items-center justify-center space-x-2">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Simulate Payment Success</span>
+            </button>
+          </div>
+
+          <!-- MODAL SUB-VIEW: PAYMENT SUCCESS -->
+          <div id="modal-sub-success" class="space-y-4 text-center hidden">
+            <div class="w-16 h-16 rounded-full bg-green-500/10 border-4 border-green-500 flex items-center justify-center text-green-500 text-2xl mx-auto animate-bounce">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-green-500">PAYMENT SUCCESS</h3>
+              <p class="text-xs text-zinc-400 mt-1">Transaksi Anda telah dikonfirmasi oleh sistem simulasi</p>
+            </div>
+
+            <div class="dark:bg-zinc-950 bg-white border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 text-xs space-y-2 text-left">
+              <div class="flex justify-between">
+                <span class="text-zinc-400">Transaction ID:</span>
+                <span id="success-tx-id" class="font-bold text-zinc-900 dark:text-white"></span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-zinc-400">Langganan:</span>
+                <span id="success-member" class="font-bold text-zinc-900 dark:text-white"></span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-zinc-400">Durasi:</span>
+                <span id="success-plan" class="font-bold text-zinc-900 dark:text-white"></span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-zinc-400">Status PM:</span>
+                <span class="text-green-500 font-bold">🟢 ACTIVE</span>
+              </div>
+            </div>
+
+            <button onclick="openPMFromSuccess()" class="w-full py-3.5 rounded-2xl bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm shadow-lg shadow-pink-500/10 text-center transition-all">
+              Open Private Message
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- PREMIUM BOTTOM STICKY NAVIGATION -->
+    <nav class="absolute bottom-0 left-0 right-0 bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-md border-t border-zinc-200 dark:border-zinc-800 flex justify-around py-3.5 px-2 z-30 shrink-0 text-zinc-900 dark:text-zinc-100">
+      <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center space-y-1 text-pink-500 scale-105 font-bold transition-all">
+        <i class="fa-solid fa-house text-lg"></i>
+        <span class="text-[9px] uppercase tracking-wider">Home</span>
+      </button>
+      <button onclick="switchTab('members')" id="nav-members" class="flex flex-col items-center space-y-1 text-zinc-400 transition-all">
+        <i class="fa-solid fa-users text-lg"></i>
+        <span class="text-[9px] uppercase tracking-wider">Members</span>
+      </button>
+      <button onclick="switchTab('chats')" id="nav-chats" class="flex flex-col items-center space-y-1 text-zinc-400 relative transition-all">
+        <i class="fa-solid fa-comment-dots text-lg"></i>
+        <span id="nav-chat-badge" class="absolute -top-1.5 -right-1 bg-pink-500 text-white text-[9px] h-4 w-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+        <span class="text-[9px] uppercase tracking-wider">PM</span>
+      </button>
+      <button onclick="switchTab('transactions')" id="nav-transactions" class="flex flex-col items-center space-y-1 text-zinc-400 transition-all">
+        <i class="fa-solid fa-receipt text-lg"></i>
+        <span class="text-[9px] uppercase tracking-wider">Trx</span>
+      </button>
+      <button onclick="switchTab('settings')" id="nav-settings" class="flex flex-col items-center space-y-1 text-zinc-400 transition-all">
+        <i class="fa-solid fa-gears text-lg"></i>
+        <span class="text-[9px] uppercase tracking-wider">Settings</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // 1. DATA MASTER MEMBER JKT48 ASLI (Sesuai era terbaru tahun 2026 JKT48 Fight!)
+    const membersData = [
+      // TEAM LOVE [1.2.6]
+      { id: "jkt48-fiony", name: "Fiony Alveria", nick: "Fiony", generation: 8, team: "Team Love", status: "active", avatar: "🌸" },
+      { id: "jkt48-fritzy", name: "Fritzy Rosmerian", nick: "Fritzy", generation: 12, team: "Team Love", status: "active", avatar: "🪄" },
+      { id: "jkt48-gracie", name: "Grace Octaviani", nick: "Gracie", generation: 11, team: "Team Love", status: "active", avatar: "🎤" },
+      { id: "jkt48-michie", name: "Michelle Alexandra", nick: "Michie", generation: 11, team: "Team Love", status: "active", avatar: "🌟" },
+      { id: "jkt48-indah", name: "Indah Cahya", nick: "Indah", generation: 9, team: "Team Love", status: "active", avatar: "🧸" },
+      { id: "jkt48-nayla", name: "Nayla Suji", nick: "Nayla", generation: 12, team: "Team Love", status: "active", avatar: "🩰" },
+      { id: "jkt48-alya", name: "Alya Amanda", nick: "Alya", generation: 11, team: "Team Love", status: "active", avatar: "🍡" },
+      { id: "jkt48-anindya", name: "Anindya Ramadhani", nick: "Anindya", generation: 11, team: "Team Love", status: "active", avatar: "🎧" },
+      { id: "jkt48-lia", name: "Aurellia", nick: "Lia", generation: 10, team: "Team Love", status: "active", avatar: "🧁" },
+      { id: "jkt48-lana", name: "Aurhel Alana", nick: "Lana", generation: 12, team: "Team Love", status: "active", avatar: "🌻" },
+      { id: "jkt48-cathy", name: "Cathleen Nixie", nick: "Cathy", generation: 11, team: "Team Love", status: "active", avatar: "🎀" },
+      { id: "jkt48-elin", name: "Celline Thefani", nick: "Elin", generation: 11, team: "Team Love", status: "active", avatar: "🍬" },
+      { id: "jkt48-cynthia", name: "Cynthia Yaputera", nick: "Cynthia", generation: 11, team: "Team Love", status: "active", avatar: "🍪" },
+      { id: "jkt48-trisha", name: "Jazzlyn Trisha", nick: "Trisha", generation: 12, team: "Team Love", status: "active", avatar: "🎠" },
+      { id: "jkt48-lily", name: "Hillary Abigail", nick: "Lily", generation: 12, team: "Team Love", status: "active", avatar: "🐱" },
+
+      // TEAM DREAM
+      { id: "jkt48-freya", name: "Freyanashifa Jayawardana", nick: "Freya", generation: 7, team: "Team Dream", status: "active", avatar: "👑" },
+      { id: "jkt48-gita", name: "Gita Sekar Andarini", nick: "Gita", generation: 6, team: "Team Dream", status: "active", avatar: "❄️" },
+      { id: "jkt48-ella", name: "Gabriela Abigail", nick: "Ella", generation: 10, team: "Team Dream", status: "active", avatar: "🍦" },
+      { id: "jkt48-greesel", name: "Greesella Adhalia", nick: "Greesel", generation: 11, team: "Team Dream", status: "active", avatar: "🎬" },
+      { id: "jkt48-eli", name: "Helisma Putri", nick: "Eli", generation: 7, team: "Team Dream", status: "active", avatar: "⛅" },
+      { id: "jkt48-lyn", name: "Jesslyn Elly", nick: "Lyn", generation: 10, team: "Team Dream", status: "active", avatar: "🌙" },
+      { id: "jkt48-marsha", name: "Marsha Lenathea", nick: "Marsha", generation: 9, team: "Team Dream", status: "active", avatar: "🎨" },
+      { id: "jkt48-nachia", name: "Nina Tutachia", nick: "Nachia", generation: 12, team: "Team Dream", status: "active", avatar: "🐼" },
+      { id: "jkt48-oline", name: "Oline Manuel", nick: "Oline", generation: 12, team: "Team Dream", status: "active", avatar: "🎡" },
+      { id: "jkt48-nala", name: "Shabilqis Naila", nick: "Nala", generation: 12, team: "Team Dream", status: "active", avatar: "🌊" },
+      { id: "jkt48-delynn", name: "Adeline Wijaya", nick: "Delynn", generation: 12, team: "Team Dream", status: "active", avatar: "🎹" },
+      { id: "jkt48-chelsea", name: "Chelsea Davina", nick: "Chelsea", generation: 11, team: "Team Dream", status: "active", avatar: "🎸" },
+      { id: "jkt48-olla", name: "Febriola Sinambela", nick: "Olla", generation: 7, team: "Team Dream", status: "active", avatar: "🎈" },
+
+      // TEAM PASSION
+      { id: "jkt48-feni", name: "Feni Fitriyanti", nick: "Feni", generation: 3, team: "Team Passion", status: "active", avatar: "🔥" },
+      { id: "jkt48-christy", name: "Angelina Christy", nick: "Christy", generation: 7, team: "Team Passion", status: "active", avatar: "☀️" },
+      { id: "jkt48-erine", name: "Catherina Vallencia", nick: "Erine", generation: 12, team: "Team Passion", status: "active", avatar: "🌹" },
+      { id: "jkt48-oniel", name: "Cornelia Vanisa", nick: "Oniel", generation: 8, team: "Team Passion", status: "active", avatar: "🍟" },
+      { id: "jkt48-danella", name: "Dena Natalia", nick: "Danella", generation: 11, team: "Team Passion", status: "active", avatar: "🛸" },
+      { id: "jkt48-daisy", name: "Desy Natalia", nick: "Daisy", generation: 11, team: "Team Passion", status: "active", avatar: "🌼" },
+      { id: "jkt48-jessi", name: "Jessica Chandra", nick: "Jessi", generation: 7, team: "Team Passion", status: "active", avatar: "🥂" },
+      { id: "jkt48-kathrina", name: "Kathrina Irene", nick: "Kathrina", generation: 9, team: "Team Passion", status: "active", avatar: "⚡" },
+      { id: "jkt48-lulu", name: "Lulu Salsabila", nick: "Lulu", generation: 8, team: "Team Passion", status: "active", avatar: "🍿" },
+      { id: "jkt48-levi", name: "Michelle Levia", nick: "Levi", generation: 12, team: "Team Passion", status: "active", avatar: "🍇" },
+      { id: "jkt48-muthe", name: "Mutiara Azzahra", nick: "Muthe", generation: 7, team: "Team Passion", status: "active", avatar: "🥑" },
+      { id: "jkt48-raisha", name: "Raisha Syifa", nick: "Raisha", generation: 10, team: "Team Passion", status: "active", avatar: "💎" },
+      { id: "jkt48-ribka", name: "Ribka Budiman", nick: "Ribka", generation: 12, team: "Team Passion", status: "active", avatar: "🍒" },
+      { id: "jkt48-kimmy", name: "Victoria Kimberly", nick: "Kimmy", generation: 12, team: "Team Passion", status: "active", avatar: "🍭" },
+      { id: "jkt48-aralie", name: "Abigail Rachel", nick: "Aralie", generation: 12, team: "Team Passion", status: "active", avatar: "🦁" },
+
+      // TRAINEES GEN 13
+      { id: "jkt48-virgi", name: "Astrella Virgiananda", nick: "Virgi", generation: 13, team: "Trainee", status: "trainee", avatar: "🐣" },
+      { id: "jkt48-auwia", name: "Aulia Riza", nick: "Auwia", generation: 13, team: "Trainee", status: "trainee", avatar: "✨" },
+      { id: "jkt48-rilly", name: "Bong Aprilli", nick: "Rilly", generation: 13, team: "Trainee", status: "trainee", avatar: "🍀" },
+      { id: "jkt48-giaa", name: "Hagia Sopia", nick: "Giaa", generation: 13, team: "Trainee", status: "trainee", avatar: "🍁" },
+      { id: "jkt48-maira", name: "Humaira Ramadhani", nick: "Maira", generation: 13, team: "Trainee", status: "trainee", avatar: "🌈" },
+      { id: "jkt48-ekin", name: "Jacqueline Immanuela", nick: "Ekin", generation: 13, team: "Trainee", status: "trainee", avatar: "🌠" },
+      { id: "jkt48-jemima", name: "Jemima Evodie", nick: "Jemima", generation: 13, team: "Trainee", status: "trainee", avatar: "💫" },
+      { id: "jkt48-mikaela", name: "Mikaela Kusjanto", nick: "Mikaela", generation: 13, team: "Trainee", status: "trainee", avatar: "💎" },
+      { id: "jkt48-intan", name: "Nur Intan", nick: "Intan", generation: 13, team: "Trainee", status: "trainee", avatar: "🌺" },
+
+      // TRAINEES GEN 14
+      { id: "jkt48-fera", name: "Afera Thalia", nick: "Fera", generation: 14, team: "Trainee", status: "trainee", avatar: "🐾" },
+      { id: "jkt48-carissa", name: "Carissa Dini", nick: "Carissa", generation: 14, team: "Trainee", status: "trainee", avatar: "🍓" },
+      { id: "jkt48-bella", name: "Christabella Bonita", nick: "Bella", generation: 14, team: "Trainee", status: "trainee", avatar: "🔔" },
+      { id: "jkt48-fahira", name: "Fahira Putri", nick: "Fahira", generation: 14, team: "Trainee", status: "trainee", avatar: "👒" },
+      { id: "jkt48-rara", name: "Fatimah Azzahra", nick: "Rara", generation: 14, team: "Trainee", status: "trainee", avatar: "🌙" },
+      { id: "jkt48-heidi", name: "Heidi Suyangga", nick: "Heidi", generation: 14, team: "Trainee", status: "trainee", avatar: "🦄" },
+      { id: "jkt48-maegan", name: "Maegan Jovanka", nick: "Maegan", generation: 14, team: "Trainee", status: "trainee", avatar: "🪐" },
+      { id: "jkt48-maxine", name: "Maxine Faye Lee", nick: "Maxine", generation: 14, team: "Trainee", status: "trainee", avatar: "👾" },
+      { id: "jkt48-jazzy", name: "Putry Jazyta", nick: "Jazzy", generation: 14, team: "Trainee", status: "trainee", avatar: "🎸" },
+      { id: "jkt48-ralyne", name: "Ralyne Van Irwan", nick: "Ralyne", generation: 14, team: "Trainee", status: "trainee", avatar: "🪄" },
+      { id: "jkt48-sona", name: "Sona Kalyana", nick: "Sona", generation: 14, team: "Trainee", status: "trainee", avatar: "🔮" },
+
+      // JKT48 VIRTUAL (Sebagai Kategori Resmi Terdaftar)
+      { id: "jkt48-pia", name: "Pia Meraleo", nick: "Pia", generation: "Virtual Gen 1", team: "JKT48 Virtual", status: "active", avatar: "🦊" },
+      { id: "jkt48-tana", name: "Tana Nona", nick: "Tana", generation: "Virtual Gen 1", team: "JKT48 Virtual", status: "active", avatar: "🐯" },
+      { id: "jkt48-kanaia", name: "Kanaia Asa", nick: "Kanaia", generation: "Virtual Gen 1", team: "JKT48 Virtual", status: "active", avatar: "🐳" },
+      { id: "jkt48-sami", name: "Sami Maono", nick: "Sami", generation: "Virtual Gen 2", team: "JKT48 Virtual", status: "active", avatar: "🐰" },
+      { id: "jkt48-isha", name: "Isha Kirana", nick: "Isha", generation: "Virtual Gen 2", team: "JKT48 Virtual", status: "active", avatar: "🔮" },
+      { id: "jkt48-maura", name: "Maura Nilambari", nick: "Maura", generation: "Virtual Gen 2", team: "JKT48 Virtual", status: "active", avatar: "🌸" }
+    ];
+
+    const exMembersData = [
+      { id: "jkt48ex-zee", name: "Azizi Asadel", nick: "Zee", generation: 7, formerTeam: "Regular", status: "ex-member", avatar: "🎸" },
+      { id: "jkt48ex-shani", name: "Shani Indira Natio", nick: "Shani", generation: 3, formerTeam: "Regular", status: "ex-member", avatar: "💫" },
+      { id: "jkt48ex-gracia", name: "Shania Gracia", nick: "Gracia", generation: 3, formerTeam: "Regular", status: "ex-member", avatar: "💜" },
+      { id: "jkt48ex-gendis", name: "Gendis Mayrannisa", nick: "Gendis", generation: 11, formerTeam: "Team Dream", status: "ex-member", avatar: "🧸" },
+      { id: "jkt48ex-ashel", name: "Adzana Shaliha", nick: "Ashel", generation: 9, formerTeam: "Regular", status: "ex-member", avatar: "✨" },
+      { id: "jkt48ex-melody", name: "Melody Nurramdhani", nick: "Melody", generation: 1, formerTeam: "Team J", status: "ex-member", avatar: "🎀" }
+    ];
+
+    // 2. CHAT DIALOGUE POOL (Untuk generator 100+ pesan terstruktur per member)
+    const chatTemplates = [
+      ["haloo! kangen yaa? 😋", "aku baru beres latihan nih, capek bgt tapi seneng!", "kamu lagi apa? jangan lupa istirahat yaa"],
+      ["pagi semuanya! ☀️", "hari ini hawanya dingin banget, jadi mager bangun wkwk", "tapi harus tetep semangat! ada teater nanti malam!"],
+      ["malamm! baru nyampe kosan nih", "langsung mandi terus lurusin kaki", "hari ini latihannya lumayan padat, tapi seru kok!"],
+      ["eh tahu ga sih? tadi pas MC ada kejadian lucu", "member lain salah ngomong terus seisi teater ketawa", "kalian harus nonton tayangan ulangnya deh wkwk"],
+      ["rekomendasiin makanan dong guys 🍱", "bingung mau makan malem apa nih", "pengennya yang pedes seger, bakso mercon oke kali ya?"],
+      ["hari ini seifuku baru aku dipake!", "lucu banget warnanya pink-putih gitu", "kalian lebih suka rambut aku diikat atau digerai?"],
+      ["baca surat dari kalian emang paling ampuh naikin mood 🥰", "makasih yaa buat ucapan dan doa manisnya", "aku simpen rapi lho di box kamar"],
+      ["jakarta hari ini ujan deres banget ⛈️", "hati-hati ya yang lagi di jalan pulang", "dingin-dingin gini enaknya selimutan sambil dengerin lagu"],
+      ["pagi! semalam tidur nyenyak ga?", "aku mimpi seru banget lho, tapi rahasia wkwk", "have a productive day ya!"],
+      ["lagi gabut nunggu antrean makeup nih", "enaknya dengerin lagu apa ya?", "lagi sering muter lagu-lagu santai belakangan ini"],
+      ["jangan telat makan yaa!", "kesehatan itu nomor satu lho", "kalau kamu sakit nanti aku sedih lho 🥺"],
+      ["wah petirnya kenceng banget di luar!", "aku agak parno nih sendirian", "temenin chat terus yaa plisss"],
+      ["happy weekend semuanya! 🎉", "ada jadwal kemana hari ini?", "jangan lupa sempetin nonton show teater ya!"],
+      ["nemu foto lama pas awal masuk JKT48", "muka aku masih gemoy dan polos bgt wkwk", "malu bgt liatnya tp jd kangen perjuangan dulu"],
+      ["aku baru beli boba rasa taro favorit aku", "manis seger bgt!", "kamu tim boba manis bgt atau less sugar?"],
+      ["makasih ya buat gift yg dikirim kemarin", "bonekanya imut bgt langsung aku taruh di sebelah kasur", "nanti malam dia nemenin aku tidur wkwk"],
+      ["aku bersyukur banget punya kalian di hidup aku", "dukungan kalian itu berharga bgt buat karier aku disini", "love you all!"],
+      ["hari ini latihannya bener-bener kuras tenaga", "paha aku sampe pegel-pegel semua hiks", "mau buru-buru tempel koyo nih"],
+      ["sore! lagi senja gini pemandangannya bagus ya", "langitnya gradasi ungu oranye", "bawaannya pengen melamun santai"],
+      ["dah dulu yaa, aku mau ganti kostum buat tampil", "doain lancar dan ga ada kendala", "dadahhh! muach 💋"],
+      ["tadi pas perform seru banget lho!", "banyak penonton fanchant-nya kenceng pol", "aku langsung tambah energi di atas panggung!"],
+      ["eh, besok aku ujian lho di sekolah/kuliah", "belum sempet baca materi banyak gara-gara cape latihan", "wish me luck yaa guys 🥺"],
+      ["akhirnya dapet jatah libur besok!", "mau seharian tidur aja no gadget", "tapi bohong deng, pasti tetep mantau kalian wkwk"],
+      ["makan cokelat malem-malem gini dosa ga ya?", "tapi pengen banget buat moodbooster", "yaudah makan dikit aja deh gapapa ya"],
+      ["hari ini udaranya bikin ngantuk terus", "lagi nunggu giliran blocking panggung", "bawaannya pengen narik selimut"],
+      ["kamu hari ini bahagia ga?", "apapun rintangan hari ini, inget ya aku selalu semangatin kamu", "jangan menyerah!"],
+      ["barusan nyobain resep makanan baru", "tapi gosong dikit wkwkwk", "untung rasanya masih edible kok!"],
+      ["eh tadi nemu kucing liar di belakang teater", "lucu banget manja-manja ke kaki aku", "mau kubawa pulang rasanya gemes bgt"],
+      ["pagi-pagi gini enaknya dengerin lagu 'Rhapsody' ga sih?", "bikin suasana hati jadi romantis gimana gitu", "ciye elah"],
+      ["hari ini teater penuh banget!", "makasih yang udah luangin waktu buat mampir ya", "kalian luar biasa!"]
+    ];
+
+    // Plans database
+    const plans = {
+      '1month': { id: '1month', name: '1 Bulan', duration: 30, price: 15000 },
+      '6month': { id: '6month', name: '6 Bulan', duration: 180, price: 50000 },
+      '1year': { id: '1year', name: '1 Tahun', duration: 365, price: 85000 },
+      'permanent': { id: 'permanent', name: 'Permanen', duration: null, price: 150000 }
+    };
+
+    // 3. APPLICATION STATE MANAGEMENT
+    let state = {
+      members: [],
+      subscriptions: {}, // key: memberId, val: subObject
+      transactions: [],
+      settings: {
+        darkMode: true,
+        typingAnimation: true,
+        notifications: true,
+        sound: true
+      },
+      filters: {
+        team: 'ALL',
+        gen: 'ALL',
+        status: 'ALL'
+      },
+      selectedMemberId: null,
+      selectedPlanId: null,
+      activeChatMemberId: null,
+      typingStates: {} // key: memberId, val: bool
+    };
+
+    // Initialize application & storage
+    function initApp() {
+      // Dark/Light Mode system load
+      const savedSettings = localStorage.getItem('pm_jkt48_settings');
+      if (savedSettings) {
+        state.settings = JSON.parse(savedSettings);
+      }
+      applyTheme();
+
+      // Check / Seed Members Database with 100+ chronological messages
+      const savedMembers = localStorage.getItem('pm_jkt48_members');
+      if (savedMembers) {
+        state.members = JSON.parse(savedMembers);
+      } else {
+        // Build fresh member database
+        state.members = [...membersData, ...exMembersData].map(m => {
+          return {
+            ...m,
+            messages: generateFreshMessagesForMember(m)
+          };
+        });
+        localStorage.setItem('pm_jkt48_members', JSON.stringify(state.members));
+      }
+
+      // Load transactions & subscriptions
+      state.subscriptions = JSON.parse(localStorage.getItem('pm_jkt48_subs') || '{}');
+      state.transactions = JSON.parse(localStorage.getItem('pm_jkt48_txs') || '[]');
+
+      // Check Expired subscriptions
+      checkSubscriptionExpiries();
+
+      // Build Generation Filter UI
+      buildGenFilterUI();
+
+      // Setup simulated active messages loop
+      setInterval(simulationIncomingChatsEngine, 25000);
+
+      // Render Dashboard & Screens
+      renderDashboard();
+      filterAndRenderMembers();
+      renderChatsList();
+      renderTransactionsView();
+      updateSettingsUI();
+    }
+
+    // Generator logic to output 100+ unique chronological messages per member
+    function generateFreshMessagesForMember(member) {
+      let messages = [];
+      let baseDate = new Date();
+      baseDate.setDate(baseDate.getDate() - 15); // Start generating from 15 days ago
+
+      let templateIndex = Math.abs(hashCode(member.id)) % chatTemplates.length;
+
+      // Create 35 chat blocks (approx. 105 messages per member)
+      for (let i = 0; i < 35; i++) {
+        let blockIndex = (templateIndex + i) % chatTemplates.length;
+        let dialogueBlock = chatTemplates[blockIndex];
+        
+        // Offset date
+        let currentDate = new Date(baseDate);
+        currentDate.setHours(9 + (i % 3) * 4, 10 + (i * 7) % 45, 0);
+
+        dialogueBlock.forEach((txt, idx) => {
+          let time = new Date(currentDate);
+          time.setMinutes(time.getMinutes() + idx * 3);
+          
+          let formattedTxt = txt.replace('[nick]', member.nick);
+
+          messages.push({
+            id: `${member.id}-msg-${i}-${idx}`,
+            text: formattedTxt,
+            timestamp: formatTime(time),
+            date: formatDateString(time),
+            rawTime: time.getTime(),
+            isRead: true
+          });
+        });
+
+        baseDate.setHours(baseDate.getHours() + 10); // Advance time
+      }
+      return messages.sort((a,b) => a.rawTime - b.rawTime);
+    }
+
+    // Helper functions
+    function hashCode(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      return hash;
+    }
+    function formatTime(date) {
+      return date.toTimeString().substring(0, 5);
+    }
+    function formatDateString(date) {
+      const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+    }
+
+    // Theme logic
+    function applyTheme() {
+      if (state.settings.darkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+
+    function toggleSetting(key) {
+      state.settings[key] = !state.settings[key];
+      localStorage.setItem('pm_jkt48_settings', JSON.stringify(state.settings));
+      if (key === 'darkMode') applyTheme();
+      updateSettingsUI();
+    }
+
+    function updateSettingsUI() {
+      ['darkMode', 'typingAnimation', 'notifications', 'sound'].forEach(key => {
+        const btn = document.getElementById(`setting-${key}`);
+        if (btn) {
+          const thumb = btn.querySelector('span');
+          if (state.settings[key]) {
+            btn.classList.add('bg-pink-500');
+            btn.classList.remove('bg-zinc-700', 'bg-zinc-300');
+            thumb.style.transform = 'translateX(0)';
+          } else {
+            btn.classList.remove('bg-pink-500');
+            btn.classList.add(state.settings.darkMode ? 'bg-zinc-700' : 'bg-zinc-300');
+            thumb.style.transform = 'translateX(-24px)';
+          }
+        }
+      });
+    }
+
+    // Navigation switcher
+    function switchTab(tabId) {
+      // Views visibility toggle
+      ['home', 'members', 'chats', 'transactions', 'settings'].forEach(view => {
+        const element = document.getElementById(`view-${view}`);
+        const navBtn = document.getElementById(`nav-${view}`);
+        if (element) {
+          if (view === tabId) {
+            element.classList.remove('hidden');
+            if (navBtn) {
+              navBtn.classList.add('text-pink-500', 'scale-105', 'font-bold');
+              navBtn.classList.remove('text-zinc-400');
+            }
+          } else {
+            element.classList.add('hidden');
+            if (navBtn) {
+              navBtn.classList.remove('text-pink-500', 'scale-105', 'font-bold');
+              navBtn.classList.add('text-zinc-400');
+            }
+          }
+        }
+      });
+      
+      // Close open PM chat overlay when moving away
+      if (tabId !== 'chats') {
+        document.getElementById('view-chat-room').classList.add('hidden');
+        state.activeChatMemberId = null;
+      }
+      
+      // Re-trigger layout renders
+      if (tabId === 'home') renderDashboard();
+      if (tabId === 'members') filterAndRenderMembers();
+      if (tabId === 'chats') renderChatsList();
+      if (tabId === 'transactions') renderTransactionsView();
+    }
+
+    // Build Generation filter buttons (1-14) dynamically
+    function buildGenFilterUI() {
+      const container = document.getElementById('gen-filter-container');
+      container.innerHTML = '';
+      for (let i = 1; i <= 14; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = `GEN ${i}`;
+        btn.className = `filter-gen-btn px-2.5 py-1 rounded-full font-semibold transition-all dark:bg-zinc-900 bg-zinc-200 dark:text-zinc-400 text-zinc-700 shrink-0`;
+        btn.onclick = () => setFilter('gen', i);
+        container.appendChild(btn);
+      }
+    }
+
+    // Multi-criteria filter system
+    function setFilter(type, value) {
+      state.filters[type] = value;
+      
+      // Update styling
+      const buttons = document.querySelectorAll(`.filter-${type}-btn`);
+      buttons.forEach(btn => {
+        let match = false;
+        if (type === 'team' && value === 'ALL' && btn.textContent === 'ALL') match = true;
+        else if (type === 'team' && value !== 'ALL' && btn.textContent === value.replace('Team ', '').toUpperCase()) match = true;
+        else if (type === 'gen' && value === 'ALL' && btn.textContent === 'ALL') match = true;
+        else if (type === 'gen' && value !== 'ALL' && btn.textContent === `GEN ${value}`) match = true;
+        else if (type === 'status' && btn.textContent === value.toUpperCase()) match = true;
+
+        if (match) {
+          btn.classList.add('active-filter', 'bg-pink-500', 'text-white');
+          btn.classList.remove('dark:bg-zinc-900', 'bg-zinc-200', 'dark:text-zinc-400', 'text-zinc-700');
+        } else {
+          btn.classList.remove('active-filter', 'bg-pink-500', 'text-white');
+          btn.classList.add(state.settings.darkMode ? 'dark:bg-zinc-900' : 'bg-zinc-200', state.settings.darkMode ? 'dark:text-zinc-400' : 'text-zinc-700');
+        }
+      });
+
+      filterAndRenderMembers();
+    }
+
+    // Filter & Render Member list logic
+    function filterAndRenderMembers() {
+      const grid = document.getElementById('members-grid');
+      const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+      grid.innerHTML = '';
+
+      let results = state.members.filter(m => {
+        // Team filter
+        if (state.filters.team !== 'ALL' && m.team !== state.filters.team) return false;
+        // Generation filter
+        if (state.filters.gen !== 'ALL' && m.generation !== parseInt(state.filters.gen)) return false;
+        // Status filter
+        if (state.filters.status !== 'ALL' && m.status !== state.filters.status) return false;
+
+        // Search logic
+        if (searchQuery) {
+          const matchName = m.name.toLowerCase().includes(searchQuery);
+          const matchTeam = m.team.toLowerCase().includes(searchQuery);
+          const matchGen = `gen ${m.generation}`.includes(searchQuery) || `generasi ${m.generation}`.includes(searchQuery);
+          const matchStatus = m.status.toLowerCase().includes(searchQuery);
+          if (!matchName && !matchTeam && !matchGen && !matchStatus) return false;
+        }
+        return true;
+      });
+
+      if (results.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-2 text-center py-10 space-y-2 text-zinc-400">
+            <i class="fa-solid fa-users-slash text-3xl"></i>
+            <p class="text-xs">Data member tidak ditemukan</p>
+          </div>
+        `;
+        return;
+      }
+
+      results.forEach(m => {
+        const sub = state.subscriptions[m.id];
+        let subBadge = `<span class="text-[9px] bg-zinc-800 text-zinc-400 font-bold px-2 py-0.5 rounded-full flex items-center space-x-1 shrink-0"><i class="fa-solid fa-lock"></i> <span>PM LOCKED</span></span>`;
+        if (sub && sub.status === 'active') {
+          if (sub.planId === 'permanent') {
+            subBadge = `<span class="text-[9px] bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold px-2 py-0.5 rounded-full flex items-center space-x-1 shrink-0"><i class="fa-solid fa-infinity"></i> <span>PERMANENT</span></span>`;
+          } else {
+            const left = getDaysLeft(sub.expiryDate);
+            subBadge = `<span class="text-[9px] bg-green-500/10 text-green-500 border border-green-500/20 font-bold px-2 py-0.5 rounded-full flex items-center space-x-1 shrink-0"><i class="fa-solid fa-key"></i> <span>${left} HARI</span></span>`;
+          }
+        } else if (sub && sub.status === 'expired') {
+          subBadge = `<span class="text-[9px] bg-red-500/10 text-red-500 border border-red-500/20 font-bold px-2 py-0.5 rounded-full flex items-center space-x-1 shrink-0"><span>EXPIRED</span></span>`;
+        }
+
+        let teamBadgeClass = 'bg-zinc-800 text-zinc-300';
+        if (m.team === 'Team Love') teamBadgeClass = 'bg-rose-500 text-white';
+        else if (m.team === 'Team Dream') teamBadgeClass = 'bg-blue-500 text-white';
+        else if (m.team === 'Team Passion') teamBadgeClass = 'bg-yellow-500 text-zinc-950';
+        else if (m.team === 'Trainee') teamBadgeClass = 'bg-zinc-700 text-zinc-100';
+
+        const card = document.createElement('div');
+        card.onclick = () => openMemberProfile(m.id);
+        card.className = `dark:bg-zinc-900 bg-white p-3.5 rounded-3xl border border-zinc-200 dark:border-zinc-800 flex flex-col space-y-2 cursor-pointer hover:border-pink-500/40 transition-all shadow-sm`;
+        card.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <div class="w-11 h-11 rounded-full dark:bg-zinc-950 bg-zinc-100 flex items-center justify-center text-xl shadow-inner shrink-0 border border-zinc-200/50 dark:border-zinc-800/50">${m.avatar || "👤"}</div>
+            <div class="min-w-0">
+              <h4 class="font-bold text-xs truncate dark:text-zinc-100 text-zinc-950">${m.name}</h4>
+              <p class="text-[10px] text-zinc-400 mt-0.5">Gen ${m.generation}</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center pt-1 mt-auto">
+            <span class="text-[9px] uppercase font-extrabold px-2 py-0.5 rounded-full shrink-0 ${teamBadgeClass}">${m.team.replace('Team ', '')}</span>
+            ${subBadge}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Open/render Profile Modal
+    function openMemberProfile(memberId) {
+      const m = state.members.find(x => x.id === memberId);
+      if (!m) return;
+      state.selectedMemberId = memberId;
+
+      document.getElementById('profile-avatar').textContent = m.avatar || "👤";
+      document.getElementById('profile-name').textContent = m.name;
+      document.getElementById('profile-gen').textContent = `Generasi ${m.generation}`;
+
+      const teamBadge = document.getElementById('profile-team');
+      teamBadge.textContent = m.team;
+      if (m.team === 'Team Love') teamBadge.className = 'text-[10px] bg-rose-500 px-2.5 py-0.5 rounded-full font-bold text-white';
+      else if (m.team === 'Team Dream') teamBadge.className = 'text-[10px] bg-blue-500 px-2.5 py-0.5 rounded-full font-bold text-white';
+      else if (m.team === 'Team Passion') teamBadge.className = 'text-[10px] bg-yellow-500 px-2.5 py-0.5 rounded-full font-bold text-zinc-950';
+      else teamBadge.className = 'text-[10px] bg-zinc-600 px-2.5 py-0.5 rounded-full font-bold text-white';
+
+      const statusBadge = document.getElementById('profile-status');
+      statusBadge.textContent = m.status.toUpperCase();
+      if (m.status === 'active') statusBadge.className = 'text-[10px] bg-green-500 px-2 py-0.5 rounded-full font-bold text-white';
+      else if (m.status === 'trainee') statusBadge.className = 'text-[10px] bg-yellow-600 px-2 py-0.5 rounded-full font-bold text-white';
+      else statusBadge.className = 'text-[10px] bg-red-600 px-2 py-0.5 rounded-full font-bold text-white';
+
+      document.getElementById('profile-msg-count').textContent = `${m.messages.length}+ pesan`;
+
+      // Sub description state UI
+      const actionContainer = document.getElementById('profile-action-container');
+      actionContainer.innerHTML = '';
+
+      const subStateLabel = document.getElementById('profile-sub-state');
+      const sub = state.subscriptions[memberId];
+
+      if (sub && sub.status === 'active') {
+        if (sub.planId === 'permanent') {
+          subStateLabel.innerHTML = `<span class="text-green-500">🟢 PERMANENT</span>`;
+        } else {
+          subStateLabel.innerHTML = `<span class="text-green-500">🟢 ACTIVE (${getDaysLeft(sub.expiryDate)} HARI)</span>`;
+        }
+        actionContainer.innerHTML = `
+          <button onclick="openPM('${m.id}')" class="w-full py-3.5 rounded-2xl bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm shadow-lg shadow-pink-500/10 text-center transition-all flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span>Buka Private Message</span>
+          </button>
+        `;
+      } else {
+        subStateLabel.innerHTML = sub && sub.status === 'expired' ? `<span class="text-red-500">🔴 EXPIRED</span>` : `<span class="text-zinc-400">🔒 LOCKED</span>`;
+        actionContainer.innerHTML = `
+          <button onclick="openPlanSelect()" class="w-full py-3.5 rounded-2xl bg-pink-500 hover:bg-pink-600 text-white font-bold text-sm shadow-lg shadow-pink-500/10 text-center transition-all flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-star"></i>
+            <span>Beli Langganan PM</span>
+          </button>
+        `;
+      }
+
+      // Show Modal
+      document.getElementById('flow-modal').classList.remove('hidden');
+      document.getElementById('modal-sub-profile').classList.remove('hidden');
+      document.getElementById('modal-sub-plans').classList.add('hidden');
+      document.getElementById('modal-sub-checkout').classList.add('hidden');
+      document.getElementById('modal-sub-payment').classList.add('hidden');
+      document.getElementById('modal-sub-qris').classList.add('hidden');
+      document.getElementById('modal-sub-success').classList.add('hidden');
+    }
+
+    function openPlanSelect() {
+      document.getElementById('modal-sub-profile').classList.add('hidden');
+      document.getElementById('modal-sub-plans').classList.remove('hidden');
+    }
+
+    function selectPlan(planId) {
+      state.selectedPlanId = planId;
+      const m = state.members.find(x => x.id === state.selectedMemberId);
+      const plan = plans[planId];
+      if (!m || !plan) return;
+
+      document.getElementById('checkout-target').textContent = m.name;
+      document.getElementById('checkout-plan').textContent = plan.name;
+      document.getElementById('checkout-duration').textContent = plan.duration ? `${plan.duration} Hari` : 'Permanen / Selamanya';
+      document.getElementById('checkout-price').textContent = `Rp ${plan.price.toLocaleString('id-ID')}`;
+
+      document.getElementById('modal-sub-plans').classList.add('hidden');
+      document.getElementById('modal-sub-checkout').classList.remove('hidden');
+    }
+
+    function goToPayment() {
+      document.getElementById('modal-sub-checkout').classList.add('hidden');
+      document.getElementById('modal-sub-payment').classList.remove('hidden');
+    }
+
+    function executePayment(method) {
+      document.getElementById('modal-sub-payment').classList.add('hidden');
+      if (method === 'QRIS') {
+        document.getElementById('qris-graphic-container').innerHTML = getSimulatedQR();
+        document.getElementById('modal-sub-qris').classList.remove('hidden');
+      } else {
+        // Direct complete simulation
+        completeSimulatedPayment();
+      }
+    }
+
+    function getSimulatedQR() {
+      return `
+        <svg class="w-48 h-48 mx-auto my-4 bg-white p-2 rounded" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="100" height="100" fill="white"/>
+          <path d="M5,5 h20 v20 h-20 z M5,10 h10 v10 h-10 z M5,75 h20 v20 h-20 z M5,80 h10 v10 h-10 z M75,5 h20 v20 h-20 z M80,10 h10 v10 h-10 z" fill="#09090b"/>
+          <path d="M35,15 h5 v5 h-5 z M45,10 h10 v5 h-10 z M60,15 h10 v10 h-10 z M30,30 h15 v5 h-15 z M50,40 h15 v5 h-15 z M15,45 h10 v15 h-10 z M70,45 h20 v5 h-20 z M40,60 h10 v10 h-10 z M60,65 h15 v5 h-15 z M35,75 h10 v15 h-10 z M75,75 h10 v5 h-10 z M85,85 h10 v10 h-10 z M55,80 h15 v5 h-15 z" fill="#09090b"/>
+          <rect x="38" y="38" width="24" height="24" rx="4" fill="#ec4899" />
+          <text x="50" y="52" fill="white" font-size="6" font-family="sans-serif" font-weight="bold" text-anchor="middle">JKT48</text>
+        </svg>
+      `;
+    }
+
+    function completeSimulatedPayment() {
+      const m = state.members.find(x => x.id === state.selectedMemberId);
+      const plan = plans[state.selectedPlanId];
+      if (!m || !plan) return;
+
+      const txId = `PM-JKT48-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+      
+      let expiryDate = null;
+      if (plan.duration) {
+        let date = new Date();
+        date.setDate(date.getDate() + plan.duration);
+        expiryDate = date.toISOString();
+      }
+
+      // Save Subscription
+      state.subscriptions[m.id] = {
+        memberId: m.id,
+        planId: plan.id,
+        startDate: new Date().toISOString(),
+        expiryDate: expiryDate,
+        status: "active",
+        transactionId: txId
+      };
+      localStorage.setItem('pm_jkt48_subs', JSON.stringify(state.subscriptions));
+
+      // Save Transaction
+      state.transactions.unshift({
+        id: txId,
+        memberId: m.id,
+        memberName: m.name,
+        planName: plan.name,
+        price: plan.price,
+        date: formatDateString(new Date()),
+        status: "SUCCESS"
+      });
+      localStorage.setItem('pm_jkt48_txs', JSON.stringify(state.transactions));
+
+      // Render Modal Success Sub-view
+      document.getElementById('success-tx-id').textContent = txId;
+      document.getElementById('success-member').textContent = m.name;
+      document.getElementById('success-plan').textContent = `${plan.name} (${plan.duration ? `${plan.duration} Hari` : 'Selamanya'})`;
+
+      document.getElementById('modal-sub-payment').classList.add('hidden');
+      document.getElementById('modal-sub-qris').classList.add('hidden');
+      document.getElementById('modal-sub-success').classList.remove('hidden');
+    }
+
+    function openPMFromSuccess() {
+      closeModal();
+      openPM(state.selectedMemberId);
+    }
+
+    function closeModal() {
+      document.getElementById('flow-modal').classList.add('hidden');
+    }
+
+    // Private Message screen logic
+    function openPM(memberId) {
+      const m = state.members.find(x => x.id === memberId);
+      const sub = state.subscriptions[memberId];
+      if (!m || !sub || sub.status !== 'active') return;
+
+      state.activeChatMemberId = memberId;
+      
+      // Update header
+      document.getElementById('chat-header-avatar').textContent = m.avatar || "👤";
+      document.getElementById('chat-header-name').textContent = m.name;
+      
+      const headerBadge = document.getElementById('chat-header-badge');
+      headerBadge.textContent = m.team.replace('Team ', '');
+      if (m.team === 'Team Love') headerBadge.className = 'text-[9px] font-bold px-2.5 py-1 bg-rose-500 text-white rounded-full';
+      else if (m.team === 'Team Dream') headerBadge.className = 'text-[9px] font-bold px-2.5 py-1 bg-blue-500 text-white rounded-full';
+      else if (m.team === 'Team Passion') headerBadge.className = 'text-[9px] font-bold px-2.5 py-1 bg-yellow-500 text-zinc-950 rounded-full';
+      else headerBadge.className = 'text-[9px] font-bold px-2.5 py-1 bg-zinc-700 text-white rounded-full';
+
+      // Clear unreads
+      m.messages.forEach(msg => msg.isRead = true);
+      localStorage.setItem('pm_jkt48_members', JSON.stringify(state.members));
+
+      renderChatBubbles();
+      
+      // Open overlay screen
+      document.getElementById('view-chat-room').classList.remove('hidden');
+      updateNavBadge();
+    }
+
+    function closePM() {
+      document.getElementById('view-chat-room').classList.add('hidden');
+      state.activeChatMemberId = null;
+    }
+
+    function renderChatBubbles() {
+      const m = state.members.find(x => x.id === state.activeChatMemberId);
+      if (!m) return;
+
+      const container = document.getElementById('chat-bubbles-container');
+      container.innerHTML = '';
+
+      let lastDate = "";
+      m.messages.forEach(msg => {
+        // Date separator
+        if (msg.date !== lastDate) {
+          lastDate = msg.date;
+          const sep = document.createElement('div');
+          sep.className = 'text-center my-3';
+          sep.innerHTML = `<span class="bg-zinc-200 dark:bg-zinc-900 text-zinc-400 text-[10px] font-extrabold px-3 py-1 rounded-full border border-zinc-200/50 dark:border-zinc-800">${msg.date}</span>`;
+          container.appendChild(sep);
+        }
+
+        const bubble = document.createElement('div');
+        bubble.className = 'flex items-start space-x-2.5 max-w-[85%] self-start animate-fade-in';
+        bubble.innerHTML = `
+          <div class="w-8 h-8 rounded-full dark:bg-zinc-900 bg-zinc-200 flex items-center justify-center text-sm shadow-inner shrink-0 border border-zinc-200/50 dark:border-zinc-800">${m.avatar || "👤"}</div>
+          <div class="space-y-0.5">
+            <span class="text-[9px] text-zinc-400 font-bold ml-1">${m.nick}</span>
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-3 rounded-2xl rounded-tl-none shadow-sm text-xs dark:text-zinc-100 text-zinc-900 leading-relaxed whitespace-pre-line relative">
+              ${msg.text}
+              <div class="flex items-center justify-end space-x-1 mt-1">
+                <span class="text-[8px] text-zinc-400">${msg.timestamp}</span>
+                <span class="text-[9px] text-pink-500"><i class="fa-solid fa-check-double"></i></span>
+              </div>
+            </div>
+          </div>
+        `;
+        container.appendChild(bubble);
+      });
+
+      // Typing Indicator inside thread
+      if (state.typingStates[m.id]) {
+        const typingEl = document.createElement('div');
+        typingEl.id = 'chat-typing-indicator';
+        typingEl.className = 'flex items-center space-x-2.5 max-w-[85%] self-start';
+        typingEl.innerHTML = `
+          <div class="w-8 h-8 rounded-full dark:bg-zinc-900 bg-zinc-200 flex items-center justify-center text-sm shrink-0 border border-zinc-200/50 dark:border-zinc-800">${m.avatar || "👤"}</div>
+          <div class="space-y-0.5">
+            <span class="text-[9px] text-zinc-400 font-bold ml-1">${m.nick} sedang mengetik...</span>
+            <div class="bg-zinc-200 dark:bg-zinc-900 px-4 py-3 rounded-2xl rounded-tl-none flex items-center justify-center text-zinc-500 h-8">
+              <span class="dot-flashing"></span>
+            </div>
+          </div>
+        `;
+        container.appendChild(typingEl);
+      }
+
+      // Scroll to bottom
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // Dashboard lists logic
+    function renderDashboard() {
+      // Refresh Stats
+      let activeSubs = Object.values(state.subscriptions).filter(s => s.status === 'active').length;
+      document.getElementById('stat-active-subs').textContent = activeSubs;
+      document.getElementById('stat-total-tx').textContent = state.transactions.length;
+
+      // Render recent chats list (active subscribed ones)
+      const container = document.getElementById('home-recent-chats');
+      container.innerHTML = '';
+
+      let subscribedMembers = state.members.filter(m => {
+        const sub = state.subscriptions[m.id];
+        return sub && sub.status === 'active';
+      });
+
+      if (subscribedMembers.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 dark:bg-zinc-900/40 bg-zinc-100 rounded-3xl p-5 border border-dashed border-zinc-200 dark:border-zinc-800 flex flex-col items-center space-y-3">
+            <div class="text-3xl"><i class="fa-solid fa-comment-slash text-zinc-500"></i></div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-sm">Belum ada Private Message Aktif</h4>
+              <p class="text-[10px] text-zinc-400">Pilih member favorit Anda dan mulailah berlangganan.</p>
+            </div>
+            <button onclick="switchTab('members')" class="px-4 py-2 bg-pink-500 text-white rounded-full text-xs font-bold shadow-lg shadow-pink-500/10">Browse Members</button>
+          </div>
+        `;
+        return;
+      }
+
+      subscribedMembers.forEach(m => {
+        const lastMsg = m.messages[m.messages.length - 1];
+        const unreadCount = m.messages.filter(msg => !msg.isRead).length;
+
+        const row = document.createElement('div');
+        row.onclick = () => openPM(m.id);
+        row.className = `p-3 bg-zinc-100 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between cursor-pointer hover:border-pink-500/40 transition-all`;
+        row.innerHTML = `
+          <div class="flex items-center space-x-3 min-w-0 flex-1">
+            <div class="w-10 h-10 rounded-full dark:bg-zinc-950 bg-zinc-200 flex items-center justify-center text-lg border border-zinc-200/50 dark:border-zinc-800/50 shrink-0">${m.avatar || "👤"}</div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center space-x-1.5">
+                <h4 class="font-bold text-xs truncate text-zinc-900 dark:text-zinc-100">${m.name}</h4>
+                <span class="text-[8px] bg-zinc-200 dark:bg-zinc-800 text-zinc-400 font-bold px-1.5 py-0.5 rounded-full shrink-0">${m.team.replace('Team ', '')}</span>
+              </div>
+              <p class="text-[10px] text-zinc-400 truncate mt-1">${lastMsg ? lastMsg.text : "Belum ada pesan"}</p>
+            </div>
+          </div>
+          <div class="text-right flex flex-col items-end space-y-1 ml-2 shrink-0">
+            <span class="text-[9px] text-zinc-400">${lastMsg ? lastMsg.timestamp : ""}</span>
+            ${unreadCount > 0 ? `<span class="bg-pink-500 text-white text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center animate-pulse">${unreadCount}</span>` : `<span class="text-xs text-zinc-400"><i class="fa-solid fa-check-double"></i></span>`}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function renderChatsList() {
+      const container = document.getElementById('chats-list');
+      container.innerHTML = '';
+
+      let list = state.members.filter(m => {
+        const sub = state.subscriptions[m.id];
+        return sub && sub.status === 'active';
+      });
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 space-y-3">
+            <div class="text-4xl text-zinc-500"><i class="fa-solid fa-comment-dots"></i></div>
+            <div class="space-y-1">
+              <h3 class="font-bold text-sm">BELUM ADA PRIVATE MESSAGE</h3>
+              <p class="text-[10px] text-zinc-400 max-w-[200px] mx-auto">Mulai langganan simulasi PM dengan memilih member pada halaman Members.</p>
+            </div>
+            <button onclick="switchTab('members')" class="px-5 py-2.5 bg-pink-500 text-white rounded-full text-xs font-bold shadow-lg shadow-pink-500/10">Browse Members</button>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach(m => {
+        const lastMsg = m.messages[m.messages.length - 1];
+        const unreadCount = m.messages.filter(msg => !msg.isRead).length;
+
+        const row = document.createElement('div');
+        row.onclick = () => openPM(m.id);
+        row.className = `p-4 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between cursor-pointer hover:border-pink-500/40 transition-all`;
+        row.innerHTML = `
+          <div class="flex items-center space-x-3.5 min-w-0 flex-1">
+            <div class="w-11 h-11 rounded-full dark:bg-zinc-950 bg-zinc-200 flex items-center justify-center text-lg border border-zinc-200/50 dark:border-zinc-800/50 shrink-0">${m.avatar || "👤"}</div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center space-x-1.5">
+                <h4 class="font-bold text-xs truncate text-zinc-900 dark:text-zinc-100">${m.name}</h4>
+                <span class="text-[8px] bg-zinc-200 dark:bg-zinc-800 text-zinc-400 font-bold px-1.5 py-0.5 rounded-full shrink-0">${m.team.replace('Team ', '')}</span>
+              </div>
+              <p class="text-[10px] text-zinc-400 truncate mt-1">${lastMsg ? lastMsg.text : "Belum ada pesan"}</p>
+            </div>
+          </div>
+          <div class="text-right flex flex-col items-end space-y-1 ml-2 shrink-0">
+            <span class="text-[9px] text-zinc-400">${lastMsg ? lastMsg.timestamp : ""}</span>
+            ${unreadCount > 0 ? `<span class="bg-pink-500 text-white text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center">${unreadCount}</span>` : `<span class="text-xs text-zinc-400"><i class="fa-solid fa-check-double"></i></span>`}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function renderTransactionsView() {
+      // 1. Render active subscriptions countdown
+      const subsContainer = document.getElementById('my-subscriptions-list');
+      subsContainer.innerHTML = '';
+
+      let list = Object.values(state.subscriptions);
+      if (list.length === 0) {
+        subsContainer.innerHTML = `
+          <div class="text-center py-4 bg-zinc-100 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-400">
+            Belum ada langganan aktif.
+          </div>
+        `;
+      } else {
+        list.forEach(sub => {
+          const m = state.members.find(x => x.id === sub.memberId);
+          if (!m) return;
+
+          let daysLeftText = '';
+          let badge = '';
+          if (sub.status === 'active') {
+            if (sub.planId === 'permanent') {
+              daysLeftText = 'Akses Permanen (Lifetime)';
+              badge = `<span class="text-[9px] bg-amber-500/10 text-amber-500 font-bold px-2 py-0.5 rounded-full border border-amber-500/20">🟢 PERMANENT</span>`;
+            } else {
+              const days = getDaysLeft(sub.expiryDate);
+              daysLeftText = `${days} Hari tersisa`;
+              badge = `<span class="text-[9px] bg-green-500/10 text-green-500 font-bold px-2 py-0.5 rounded-full border border-green-500/20">🟢 ACTIVE</span>`;
+            }
+          } else {
+            daysLeftText = 'Langganan kadaluarsa';
+            badge = `<span class="text-[9px] bg-red-500/10 text-red-500 font-bold px-2 py-0.5 rounded-full border border-red-500/20">🔴 EXPIRED</span>`;
+          }
+
+          const card = document.createElement('div');
+          card.className = `p-4 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 flex justify-between items-center`;
+          card.innerHTML = `
+            <div class="flex items-center space-x-3.5 min-w-0">
+              <div class="w-10 h-10 rounded-full dark:bg-zinc-950 bg-zinc-200 flex items-center justify-center text-lg border border-zinc-200/50 dark:border-zinc-800/50 shrink-0">${m.avatar || "👤"}</div>
+              <div class="min-w-0">
+                <h4 class="font-bold text-xs truncate text-zinc-900 dark:text-zinc-100">${m.name}</h4>
+                <p class="text-[10px] text-zinc-400 mt-0.5">${daysLeftText}</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-end space-y-2 ml-2 shrink-0">
+              ${badge}
+              ${sub.status === 'active' ? `<button onclick="openPM('${m.id}')" class="text-[10px] bg-pink-500 text-white font-bold px-3 py-1 rounded-full shadow-md shadow-pink-500/10">Buka PM</button>` : `<button onclick="openMemberProfile('${m.id}')" class="text-[10px] bg-zinc-800 text-zinc-100 border border-zinc-700 font-bold px-3 py-1 rounded-full">Perbarui</button>`}
+            </div>
+          `;
+          subsContainer.appendChild(card);
+        });
+      }
+
+      // 2. Render Transaction History
+      const txContainer = document.getElementById('tx-history-list');
+      txContainer.innerHTML = '';
+
+      if (state.transactions.length === 0) {
+        txContainer.innerHTML = `
+          <div class="text-center py-4 bg-zinc-100 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-400">
+            Belum ada riwayat pembayaran simulasi.
+          </div>
+        `;
+      } else {
+        state.transactions.forEach(tx => {
+          const row = document.createElement('div');
+          row.className = `p-3.5 bg-zinc-100 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex justify-between items-center text-xs`;
+          row.innerHTML = `
+            <div>
+              <h4 class="font-bold text-zinc-900 dark:text-zinc-100">${tx.memberName}</h4>
+              <p class="text-[10px] text-zinc-400 mt-1">ID: ${tx.id} • ${tx.date}</p>
+            </div>
+            <div class="text-right">
+              <p class="font-extrabold text-pink-500">Rp ${tx.price.toLocaleString('id-ID')}</p>
+              <span class="text-[8px] bg-green-500/10 text-green-500 font-extrabold px-1.5 py-0.5 rounded border border-green-500/20 mt-1 inline-block">${tx.status}</span>
+            </div>
+          `;
+          txContainer.appendChild(row);
+        });
+      }
+    }
+
+    // Helper: Days left logic
+    function getDaysLeft(expiryIso) {
+      if (!expiryIso) return 0;
+      const leftMs = new Date(expiryIso) - new Date();
+      return Math.max(0, Math.ceil(leftMs / (1000 * 60 * 60 * 24)));
+    }
+
+    function checkSubscriptionExpiries() {
+      let changed = false;
+      Object.keys(state.subscriptions).forEach(id => {
+        const sub = state.subscriptions[id];
+        if (sub.status === 'active' && sub.expiryDate) {
+          if (new Date(sub.expiryDate) < new Date()) {
+            sub.status = 'expired';
+            changed = true;
+          }
+        }
+      });
+      if (changed) {
+        localStorage.setItem('pm_jkt48_subs', JSON.stringify(state.subscriptions));
+      }
+    }
+
+    // Dynamic badge count
+    function updateNavBadge() {
+      let unreads = 0;
+      state.members.forEach(m => {
+        const sub = state.subscriptions[m.id];
+        if (sub && sub.status === 'active') {
+          unreads += m.messages.filter(msg => !msg.isRead).length;
+        }
+      });
+
+      const badge = document.getElementById('nav-chat-badge');
+      if (unreads > 0) {
+        badge.textContent = unreads;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    // 4. CHAT SIMULATION LOGIC (Mesin simulasi pesan masuk real-time)
+    function simulationIncomingChatsEngine() {
+      // Pick active subscribed members randomly
+      let activeSubs = Object.values(state.subscriptions).filter(s => s.status === 'active');
+      if (activeSubs.length === 0) return;
+
+      // Pick random sub
+      const randomSub = activeSubs[Math.floor(Math.random() * activeSubs.length)];
+      const m = state.members.find(x => x.id === randomSub.memberId);
+      if (!m) return;
+
+      // Pick randomly a thematic text group
+      const randomGroup = chatTemplates[Math.floor(Math.random() * chatTemplates.length)];
+      
+      triggerTypingSequenceAndDeliver(m, randomGroup);
+    }
+
+    function triggerTypingSequenceAndDeliver(member, textGroup) {
+      if (state.typingStates[member.id]) return; // already typing
+      state.typingStates[member.id] = true;
+
+      // Update UI thread if active
+      if (state.activeChatMemberId === member.id) {
+        renderChatBubbles();
+      }
+
+      // Progressively deliver messages from block with delay to simulate human typing
+      let delay = 3500;
+      textGroup.forEach((msgText, idx) => {
+        setTimeout(() => {
+          if (idx === textGroup.length - 1) {
+            state.typingStates[member.id] = false;
+          }
+          
+          let formattedTxt = msgText.replace('[nick]', member.nick);
+          let dateObj = new Date();
+          
+          member.messages.push({
+            id: `${member.id}-dyn-${Date.now()}-${idx}`,
+            text: formattedTxt,
+            timestamp: formatTime(dateObj),
+            date: formatDateString(dateObj),
+            rawTime: dateObj.getTime(),
+            isRead: (state.activeChatMemberId === member.id)
+          });
+
+          // Save state
+          localStorage.setItem('pm_jkt48_members', JSON.stringify(state.members));
+
+          // Trigger Effects & Notification if not actively reading
+          if (state.activeChatMemberId === member.id) {
+            renderChatBubbles();
+          } else {
+            triggerPopupNotification(member, formattedTxt);
+          }
+
+          updateNavBadge();
+
+        }, delay * (idx + 1));
+      });
+    }
+
+    // Audio & Toast notification trigger
+    function triggerPopupNotification(member, messageText) {
+      if (state.settings.sound) {
+        playNotificationTone();
+      }
+      
+      if (state.settings.notifications) {
+        const toast = document.getElementById('toast-notification');
+        document.getElementById('toast-avatar').textContent = member.avatar || "🌸";
+        document.getElementById('toast-title').textContent = member.name;
+        document.getElementById('toast-msg').textContent = messageText;
+
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.style.transform = 'translateY(0)';
+        }, 50);
+
+        setTimeout(() => {
+          toast.style.transform = 'translateY(-150%)';
+          setTimeout(() => {
+            toast.classList.add('hidden');
+          }, 500);
+        }, 4000);
+      }
+    }
+
+    // Synth Sound Generator (Web Audio API) - Premium & Bebas Asset Eksternal
+    function playNotificationTone() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.1); // A5
+        
+        gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+        gainNode.gain.linearRampToValueAtTime(0.1, audioCtx.currentTime + 0.05);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+        
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.4);
+      } catch (e) {
+        console.warn("Audio play failed, requires user gesture interact first.", e);
+      }
+    }
+
+    // Master Reset
+    function resetApplication() {
+      if (confirm("Apakah Anda yakin ingin menyetel ulang seluruh aplikasi? Seluruh data langganan, transaksi, dan histori pesan buatan akan dihapus secara permanen.")) {
+        localStorage.clear();
+        location.reload();
+      }
+    }
+
+    // Boot App on load
+    window.onload = initApp;
+  </script>
+</body>
+</html>
